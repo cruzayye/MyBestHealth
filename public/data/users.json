@@ -1,0 +1,11 @@
+[
+  {
+    "name":"Joe Sixpack",
+    "age": "37",
+    "heightFeet": "5",
+    "heightInches": "9",
+    "weight": "180",
+    "email": "joe6pk@email.com",
+    "password": "1234abcd"
+  }
+]

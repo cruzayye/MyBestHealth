@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="styles/modules.css">
 </head>
 <body>
   <header>
@@ -9,13 +10,13 @@
   <section id="" class="signupForm">
     <form id="personalForm">
       <h2>First, tell us a little about yourself.</h2>
-      "My name is <input type="text" name="name">."<br>
-      "I am <input type="number" name="age"> years old."<br>
-      "I am <input type="number" name="heightFeet"> feet and <input type="number" name="heightInches"> inches tall."<br>
-      "I weigh<input type="number" name="weight"> pounds."<br><br>
+      "My name is <input type="text" name="name" id="name">."<br>
+      "I am <input type="number" name="age" id="age"> years old."<br>
+      "I am <input type="number" name="heightFeet" id="heightFeet"> feet and <input type="number" name="heightInches" id="heightInches"> inches tall."<br>
+      "I weigh<input type="number" name="weight" id="weight"> pounds."<br><br>
       Now pick some login info:<br>
-      email <input type="email" name="email"><br>
-      pick a password:<input type="password" name="password"><br>
+      email <input type="email" name="email" id="email"><br>
+      pick a password:<input type="password" name="password" id="password"><br>
       <input id='submitButton' type='submit'></input>
     </form>
   </section>
@@ -56,5 +57,6 @@
       </form>
   <script type='text/javascript' src='scripts/jquery-3.3.1.min.js'></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script type="text/javascript" src="scripts/users.js"></script>
 </body>
 </html>
