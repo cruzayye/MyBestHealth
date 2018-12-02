@@ -21,25 +21,17 @@
         
     }
 
-    .progress{
-        width: 100%;
-        background: green;
-        text-align: center;
-    }
 
 </style>
 </head>
 
 <body>
     <nav>
-        <ul>
-            <li>logo</li>
-            <li>home</li>
-            <li>about</li>
-            <li>stats</li>
-            <li>Edit</li>
-        </ul>
-
+            <div id="logo">logo</div>
+            <div class="tabs">home</div>
+            <div class="tabs">about</div>
+            <div class="tabs">stats</div>
+            <div class="tabs">Edit</div>
     </nav>
     <section class= "userInfo">
         <!-- <h1>This is you</h1> -->
@@ -56,7 +48,9 @@
         </aside>
     </section>
 
+    <section>
     <div class = "progress"> 100%</div>
+    </section>
 
     <section>
         <!-- create function to fill in numbers -->
@@ -74,14 +68,14 @@
 
     <footer>
         <nav>
-            <ul>
-                <li>
+            
+                <div id = "copyright">
                     copyright: 2018
-                </li>
-                <li>
-                    Stay live, feel better
-                </li>
-            </ul>
+                </div>
+                <div class="slogan">
+                    Stay Active, feel better
+                </div>
+           
         </nav>
     </footer>
 

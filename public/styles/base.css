@@ -1,21 +1,30 @@
 body{
     margin: 0;
+    background-image: url("../images/Vanusa.jpg");
+}
+
+section{
+    margin: 0 5%;
 }
 
 button{
     height: 50%;
     width:100%;
     padding: 2%;
-    background: grey;
+    background: #60163d;
  
 
  }
 
  nav{
-    background: grey;
+    background: #d84353;
     margin: 0;
     padding: 2%;
+    /* filter: drop-shadow(0 0 0.3em blue); */
+    filter: drop-shadow(0px 1px 10px black);
+    display: flex
     
+
 }
 
 footer nav{
@@ -29,6 +38,28 @@ footer{
 ul{
     margin: 0;
 }
-li{
-    display: inline;
+
+.tabs, .slogan{
+    margin-right: 1%;
+    
 }
+#logo, #copyright{
+    margin-left: 1%;
+}
+
+
+#logo, #copyright{
+    margin-right: auto;
+}
+
+/* ==========stats */
+
+
+
+.progress{
+    width: 100%;
+    background: #60163d;
+    ;
+    text-align: center;
+}
+
