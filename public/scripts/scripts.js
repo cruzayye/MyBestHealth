@@ -3,9 +3,11 @@ $("#submitButton").click(function(e){
   var formData = $("#personalForm").serializeArray();
   var jasonData = JSON.stringify(formData);
   console.log(jasonData);
-  formFlip();
+
+  formFlip(personalForm, goalForm);
 });
 
 function formFlip(firstForm, secondForm){
-
+  $(firstForm).hide();
+  $(secondForm).show();
 }
