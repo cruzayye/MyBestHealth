@@ -1,4 +1,11 @@
 $("#submitButton").click(function(e){
   e.preventDefault();
-  console.log('hi there!')
-})
+  var formData = $("#personalForm").serializeArray();
+  var jasonData = JSON.stringify(formData);
+  console.log(jasonData);
+  formFlip();
+});
+
+function formFlip(firstForm, secondForm){
+
+}
