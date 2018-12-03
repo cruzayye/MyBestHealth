@@ -1,10 +1,15 @@
 
 var yesCount = 0;
-
+var goal = 3 //user goal 
+var yesPercentage = 0;
+var yesIncrement = 100 / goal;
 
 function yesButton(){
 $('.yes').on('click', function(){
     yesCount++;
+
+    
+    // console.log(yesPercentage+=14.28);
     console.log(yesCount);
 
     var date1 = new Date();
@@ -13,6 +18,18 @@ $('.yes').on('click', function(){
     var month = date1.getMonth();
     console.log(`${month} ${dayOfMonth}, ${year}`);
 
+
+    //progress bar 
+    if (yesCount <= goal){
+    document.getElementById('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
+
+
+    } 
+
+    //percentage
+    var percentage = Math.round(yesPercentage+=yesIncrement);
+    console.log(percentage);
+    $("#percentage").text(percentage + "%");
 
 })
 };
