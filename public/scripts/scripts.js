@@ -1,3 +1,9 @@
+page = {};
+
+page.saveID = function(){
+  localStorage.setItem("userID", )
+}
+
 $("#submitButton").click(function(event){
   event.preventDefault();
   let user = new User({
@@ -10,9 +16,6 @@ $("#submitButton").click(function(event){
     password: $('#password').val(),
   })
   console.log(user);
-  // var formData = $("#personalForm").serializeArray();
-  // var jasonData = JSON.stringify(formData);
-  // console.log(jasonData);
   user.insertRecord();
   formFlip(personalForm, goalForm);
 });

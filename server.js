@@ -4,12 +4,11 @@ const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
 const app = express();
-
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
-
 const strings = require('./constring');
 const client = new pg.Client(strings.conString);
+
 client.connect();
 client.on('error', function(err) {
   console.error(err);
@@ -24,7 +23,6 @@ app.get('/', (request, response) =>  response.sendFile('signup.html', {root: './
 
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
-
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
@@ -33,8 +31,8 @@ app.post('/users', function(request, response){
     `,
     [request.body.name, request.body.age, request.body.heightFeet, request.body.heightInches, request.body.weight, request.body.email, request.body.password]
   )
-  .then(function() {
-    response.send('insert complete')
+  .then(function(result) {
+    return(result.rows);
   })
   .catch(function(err){
     console.error(err);
@@ -57,7 +55,6 @@ function loadUsers(){
           client.query(
             `INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
             VALUES ($1, $2, $3, $4, $5, $6, $7);
-
             `,
             [ele.name, ele.age, ele.heightFeet, ele.heightInches, ele.weight, ele.email, ele.password]
           )
