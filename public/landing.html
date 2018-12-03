@@ -41,25 +41,46 @@
 
 
     </style>
+        <script id="quote-template" type="text/x-handlebars-template">
+        
+            <p>
+              <h3>{{contents}}</h3>
+            <p>
+            
+            <!-- <p>Description: {{description}}</p>
+            <p>Language: {{language}}</p>
+            <p>Created: {{created_at}}</p>
+            <p>Last updated: {{updated_at}}</p>
+            {{#if watchers_count}}
+              <p>{{watchers_count}} watching this repo</p>
+            {{/if}} -->
+          
+      </script>
+    
 </head>
 <body>
     <nav>
-        <ul>
-            <li>logo</li>
-            <li>home</li>
-            <li>about</li>
-            <li>stats</li>
-            <li>Edit</li>
-        </ul>
+   
+            <div id="logo">logo</div>
+            <div class="tabs">home</div>
+            <div class="tabs">about</div>
+            <div class="tabs">stats</div>
+            <div class="tabs">Edit</div>
+
 
     </nav>
 
-    <section>
+    <section class="log">
         <h2> Have you had a Chance to workout today</h2>
-        <button >Yes</button>
-        <button >No</button>
-        <div>100%</div>
+        <button class ="yes">Yes</button>
+        <button class ="no">No</button>
 
+
+    </section>
+
+    <section>
+        <div>100%</div>
+        <aside id="quote">  </aside>
     </section>
 
     <footer>
@@ -76,4 +97,33 @@
     </footer>
     
 </body>
+<script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+<script type="text/javascript" src="scripts/buttons.js">
+
+
+
+
+
+
+
+////api 
+//model 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 </html>
