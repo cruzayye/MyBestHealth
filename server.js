@@ -28,7 +28,8 @@ app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: 
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
-    VALUES ($1, $2, $3, $4, $5, $6, $7);
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    RETURNING user_id;
     `,
     [request.body.name, request.body.age, request.body.heightFeet, request.body.heightInches, request.body.weight, request.body.email, request.body.password]
   )
@@ -56,6 +57,7 @@ function loadUsers(){
           client.query(
             `INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
             VALUES ($1, $2, $3, $4, $5, $6, $7);
+
             `,
             [ele.name, ele.age, ele.heightFeet, ele.heightInches, ele.weight, ele.email, ele.password]
           )
@@ -64,6 +66,25 @@ function loadUsers(){
     }
   })
 }
+
+// function loadGoals(){
+//   client.query('SELECT COUNT(*) FROM goals')
+//   .then(result => {
+//     if(!parseInt(result.rows[0].count)){
+//       fs.readFile('./public.data.goals.json', (err, fd) => {
+//         JSON.parse(fd.toString*()).forEach(ele => {
+//           client.query(
+//             `INSERT INTO users(what, howMuch, howOften, dateStart)
+//             VALUES ($1, $2, $3, $4);
+//             `,
+//             [ele.what, ele.howMuch, ele.howOften, ele.dateStart]
+//           )
+//           .catch(console.error);
+//         })
+//       })
+//     }
+//   })
+// }
 
 function loadDB() {
   client.query(`
