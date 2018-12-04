@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="styles/modules.css">
 </head>
 <body>
   <header>
@@ -9,31 +10,31 @@
   <section id="" class="signupForm">
     <form id="personalForm">
       <h2>First, tell us a little about yourself.</h2>
-      "My name is <input type="text" name="name">."<br>
-      "I am <input type="number" name="age"> years old."<br>
-      "I am <input type="number" name="heightFeet"> feet and <input type="number" name="heightInches"> inches tall."<br>
-      "I weigh<input type="number" name="weight"> pounds."<br><br>
+      "My name is <input type="text" name="name" id="name">."<br>
+      "I am <input type="number" name="age" id="age"> years old."<br>
+      "I am <input type="number" name="heightFeet" id="heightFeet"> feet and <input type="number" name="heightInches" id="heightInches"> inches tall."<br>
+      "I weigh<input type="number" name="weight" id="weight"> pounds."<br><br>
       Now pick some login info:<br>
-      email <input type="email" name="email"><br>
-      pick a password:<input type="password" name="password"><br>
+      email <input type="email" name="email" id="email"><br>
+      pick a password:<input type="password" name="password" id="password"><br>
       <input id='submitButton' type='submit'></input>
     </form>
   </section>
   <section id="goalForm" class="signupForm">
-    <h2>So far so good.<h2>
+    <h2>So far so good. Now tell us what you'd like to do.<h2>
       <h3>What is your <span id="exercisePrompt">exercise</span> goal?</h3>
-      <form>"I want to <input type="text" name=what value="do what?"><input type="text" name="howMuch" value="how much?"><select>
+      <form>"I want to <input type="text" id="what" value="do what?"><select id ="howOften">
         <option disabled selected>how often?</option>
-        <option>Every Day</option>
-        <option> Five Times a Week</option>
-        <option> Four Times a Week</option>
-        <option>Three times a Week</option>
-        <option>Twice a Week</option>
-        <option>Once a Week</option>
+        <option value="7">Every Day</option>
+        <option value="5"> Five Times a Week</option>
+        <option value="4"> Four Times a Week</option>
+        <option value ="3">Three times a Week</option>
+        <option value="2">Twice a Week</option>
+        <option value="1">Once a Week</option>
       </select>"
       </form>
-      <h3>What is your <span id="dietPrompt">diet</span> goal?</h3>
-      <form>"I want to <input type="text" name=what value="do what?"><input type="text" name="howMuch" value="how much?"><select>
+      <!-- <h3>What is your <span id="dietPrompt">diet</span> goal?</h3>
+      <form>"I want to <input type="text" name="what" value="do what?"><select name ="howOften">
         <option disabled selected>how often?</option>
         <option>Every Day</option>
         <option> Five Times a Week</option>
@@ -44,7 +45,7 @@
       </select>"
       </form>
       <h3>What is your <span id="mindPrompt">mind</span> goal?</h3>
-      <form>"I want to <input type="text" name=what value="do what?"><input type="text" name="howMuch" value="how much?"><select>
+      <form>"I want to <input type="text" name="what" value="do what?"><select name ="howOften">
         <option disabled selected>how often?</option>
         <option>Every Day</option>
         <option> Five Times a Week</option>
@@ -52,9 +53,12 @@
         <option>Three times a Week</option>
         <option>Twice a Week</option>
         <option>Once a Week</option>
-      </select>"
+      </select>" -->
+      <input id='goalSubmitButton' type='submit'></input>
       </form>
   <script type='text/javascript' src='scripts/jquery-3.3.1.min.js'></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
+  <script type="text/javascript" src="scripts/users.js"></script>
+  <script type="text/javascript" src="scripts/goals.js"></script>
 </body>
 </html>
