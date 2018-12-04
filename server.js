@@ -119,7 +119,6 @@ function loadDB() {
   .catch(function(err){
     console.error(err)
   })
-
   client.query(`
     CREATE TABLE IF NOT EXISTS
     goals (
