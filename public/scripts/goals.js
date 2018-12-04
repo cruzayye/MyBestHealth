@@ -11,6 +11,11 @@ Goal.prototype.insertGoal = function(callback) {
 
 goalTypes = ['exercise', 'diet', 'mind'];
 
-goalTypes.forEach(function(element){
-  
-})
+goalsEntered = 0;
+
+function swapPrompt(e){
+  $("#goalSpan, #goalForm").fadeOut(1000, function(){
+    $("#promptZone").text(goalTypes[e]);
+    $("#goalSpan, #goalForm").fadeIn();
+  });
+};
