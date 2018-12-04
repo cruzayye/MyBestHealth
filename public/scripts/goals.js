@@ -4,7 +4,7 @@ function Goal(rawDataObj){
 
 Goal.all = [];
 
-Goal.prototype.insertRecord = function(callback) {
-  $.post('/goals', {what: this.what, howMuch: this.howMuch, howOften: this.howOften, dateStart: })
+Goal.prototype.insertGoal = function(callback) {
+  $.post('/goals', {what: this.what, howMuch: this.howMuch, date: this.date, user_id: this.user_id})
   .then(callback);
 };

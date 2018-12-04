@@ -39,6 +39,22 @@ app.post('/users', function(request, response){
   });
 });
 
+app.post('/goals', function(request, response){
+  client.query(`
+    INSERT INTO goals(what, howOften, dateStart, user_id)
+    VALUES ($1, $2, $3, $4);
+    `,
+    [request.what, request.howOften, request.dateStart, request.user_id]
+  )
+  .then(function(result) {
+    return(result.rows);
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+});
+
+
 loadDB();
 
 app.listen(PORT, function() {
@@ -64,28 +80,29 @@ function loadUsers(){
   })
 }
 
-// function loadGoals(){
-//   client.query('SELECT COUNT(*) FROM goals')
-//   .then(result => {
-//     if(!parseInt(result.rows[0].count)){
-//       fs.readFile('./public.data.goals.json', (err, fd) => {
-//         JSON.parse(fd.toString*()).forEach(ele => {
-//           client.query(
-//             `INSERT INTO users(what, howMuch, howOften, dateStart)
-//             VALUES ($1, $2, $3, $4);
-//             `,
-//             [ele.what, ele.howMuch, ele.howOften, ele.dateStart]
-//           )
-//           .catch(console.error);
-//         })
-//       })
-//     }
-//   })
-// }
+function loadGoals(){
+  client.query('SELECT COUNT(*) FROM goals')
+  .then(result => {
+    if(!parseInt(result.rows[0].count)){
+      fs.readFile('./public/data/goals.json', (err, fd) => {
+        JSON.parse(fd.toString()).forEach(ele => {
+          client.query(
+            `INSERT INTO goals(what, howOften, dateStart, user_id)
+            VALUES ($1, $2, $3, $4);
+            `,
+            [ele.what, ele.howOften, ele.dateStart, ele.user_id]
+          )
+          .catch(console.error);
+        })
+      })
+    }
+  })
+}
 
 function loadDB() {
   client.query(`
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE IF NOT EXISTS
+    users (
       user_id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       age VARCHAR(255) NOT NULL,
@@ -98,6 +115,23 @@ function loadDB() {
   )
   .then(function(){
     loadUsers();
+  })
+  .catch(function(err){
+    console.error(err)
+  })
+
+  client.query(`
+    CREATE TABLE IF NOT EXISTS
+    goals (
+      goal_id SERIAL PRIMARY KEY,
+      what VARCHAR(255),
+      howOften VARCHAR(255),
+      date VARCHAR(255),
+      user_id VARCHAR(255)
+    );`
+  )
+  .then(function(){
+    loadGoals();
   })
   .catch(function(err){
     console.error(err)

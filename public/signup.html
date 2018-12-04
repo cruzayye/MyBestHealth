@@ -23,7 +23,7 @@
   <section id="goalForm" class="signupForm">
     <h2>So far so good. Now tell us what you'd like to do.<h2>
       <h3>What is your <span id="exercisePrompt">exercise</span> goal?</h3>
-      <form>"I want to <input type="text" name=what value="do what?"><input type="text" name="howMuch" value="how much?"><select>
+      <form>"I want to <input type="text" id="what" value="do what?"><select id ="howOften">
         <option disabled selected>how often?</option>
         <option value="7">Every Day</option>
         <option value="5"> Five Times a Week</option>
@@ -33,8 +33,8 @@
         <option value="1">Once a Week</option>
       </select>"
       </form>
-      <h3>What is your <span id="dietPrompt">diet</span> goal?</h3>
-      <form>"I want to <input type="text" name=what value="do what?"><input type="text" name="howMuch" value="how much?"><select>
+      <!-- <h3>What is your <span id="dietPrompt">diet</span> goal?</h3>
+      <form>"I want to <input type="text" name="what" value="do what?"><select name ="howOften">
         <option disabled selected>how often?</option>
         <option>Every Day</option>
         <option> Five Times a Week</option>
@@ -45,7 +45,7 @@
       </select>"
       </form>
       <h3>What is your <span id="mindPrompt">mind</span> goal?</h3>
-      <form>"I want to <input type="text" name=what value="do what?"><input type="text" name="howMuch" value="how much?"><select>
+      <form>"I want to <input type="text" name="what" value="do what?"><select name ="howOften">
         <option disabled selected>how often?</option>
         <option>Every Day</option>
         <option> Five Times a Week</option>
@@ -53,11 +53,12 @@
         <option>Three times a Week</option>
         <option>Twice a Week</option>
         <option>Once a Week</option>
-      </select>"
+      </select>" -->
       <input id='goalSubmitButton' type='submit'></input>
       </form>
   <script type='text/javascript' src='scripts/jquery-3.3.1.min.js'></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
   <script type="text/javascript" src="scripts/users.js"></script>
+  <script type="text/javascript" src="scripts/goals.js"></script>
 </body>
 </html>

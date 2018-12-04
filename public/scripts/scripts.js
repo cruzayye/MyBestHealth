@@ -20,6 +20,20 @@ $("#submitButton").click(function(event){
   formFlip(personalForm, goalForm);
 });
 
+$("#goalSubmitButton").click(function(event){
+  event.preventDefault();
+  var d = new Date();
+  var n = d.getDate();
+  let goal = new Goal({
+    what: $('#what').val(),
+    howOften: $('#howOften').val(),
+    date: n,
+    user_id: localStorage.user_id
+  })
+  console.log(goal);
+  goal.insertGoal();
+})
+
 function formFlip(firstForm, secondForm){
   $(firstForm).fadeOut();
   $(secondForm).delay(500).fadeIn();
