@@ -32,7 +32,7 @@ app.post('/users', function(request, response){
     [request.body.name, request.body.age, request.body.heightFeet, request.body.heightInches, request.body.weight, request.body.email, request.body.password]
   )
   .then(function(result) {
-    return(result.rows);
+    response.send(result.rows);
   })
   .catch(function(err){
     console.error(err);
@@ -46,9 +46,6 @@ app.post('/goals', function(request, response){
     `,
     [request.what, request.howOften, request.dateStart, request.user_id]
   )
-  .then(function(result) {
-    return(result.rows);
-  })
   .catch(function(err){
     console.error(err);
   });
@@ -123,9 +120,11 @@ function loadDB() {
     CREATE TABLE IF NOT EXISTS
     goals (
       goal_id SERIAL PRIMARY KEY,
+      type VARCHAR(255),
       what VARCHAR(255),
       howOften VARCHAR(255),
-      date VARCHAR(255),
+      dateStart VARCHAR(255),
+      dateEnd VARCHAR(255),
       user_id VARCHAR(255)
     );`
   )

@@ -16,37 +16,27 @@ $("#submitButton").click(function(event){
   formFlip(personalForm, exerGoalForm);
 });
 
-$("#exerSubmit, #dietSubmit, #mindSubmit").click(function(event){
+$("#goalSubmit").click(function(event){
   event.preventDefault();
-  var d = new Date();
-  var n = d.getDate();
+  var startDate = retrieveToday();
   let goal = new Goal({
+    type: 'exercise',
     what: $('#what').val(),
     howOften: $('#howOften').val(),
-    date: n,
+    startDate: startDate,
     user_id: localStorage.user_id
   })
   console.log(goal);
   goal.insertGoal();
 });
 
-$("#exerSubmit").click(function(event){
-  event.preventDefault();
-  formFlip(exerGoalForm, dietGoalForm);
-})
-
-$("#dietSubmit").click(function(event){
-  event.preventDefault();
-  formFlip(dietGoalForm, mindGoalForm);
-})
-
-function retrieveDate(){
+function retrieveToday(){
    var date1 = new Date();
    var dayOfMonth = date1.getDate();
    var year = date1.getFullYear();
    var month = (date1.getMonth()+1);
-   var thisDate = (month + "-" + dayOf + "-" + year);
-   console.log(thisDate);
+   var thisDate = (month + "-" + dayOfMonth + "-" + year);
+   return(thisDate);
 };
 
 function formFlip(firstForm, secondForm){

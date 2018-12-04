@@ -5,6 +5,12 @@ function Goal(rawDataObj){
 Goal.all = [];
 
 Goal.prototype.insertGoal = function(callback) {
-  $.post('/goals', {what: this.what, howMuch: this.howMuch, date: this.date, user_id: this.user_id})
+  $.post('/goals', {what: this.what, howMuch: this.howMuch, startDate: this.startDate, user_id: this.user_id})
   .then(callback);
 };
+
+goalTypes = ['exercise', 'diet', 'mind'];
+
+goalTypes.forEach(function(element){
+  
+})
