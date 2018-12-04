@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,29 +38,89 @@
             text-align: center;
         }
 
+            h3{
+               color: white;
+               position: relative;
+               margin: 0;
+   
+           }
+        #progress-container {
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 0 4px white;
+            border-radius: 13px;
+            position: relative;
+            height: 26px;
+            margin-top: 2%;
+            margin-right: 2%;
+            margin-left: 2%;
+
+        }
+
+
+
+    
+        #progress-bar {
+            border-radius: 13px;
+            height: 26px;
+            width: 0;
+            background-color: #FF443B;
+            position: absolute;
+            top: -1px;
+            left: 0;
+            z-index: -1;
+            }
+
+
+
 
 
 
     </style>
+    <script id="quote-template" type="text/x-handlebars-template">
+
+            <p>
+              <h3>{{contents}}</h3>
+            <p>
+            
+            <!-- <p>Description: {{description}}</p>
+            <p>Language: {{language}}</p>
+            <p>Created: {{created_at}}</p>
+            <p>Last updated: {{updated_at}}</p>
+            {{#if watchers_count}}
+              <p>{{watchers_count}} watching this repo</p>
+            {{/if}} -->
+          
+      </script>
+
 </head>
+
 <body>
     <nav>
-        <ul>
-            <li>logo</li>
-            <li>home</li>
-            <li>about</li>
-            <li>stats</li>
-            <li>Edit</li>
-        </ul>
+
+        <div id="logo">logo</div>
+        <div class="tabs">home</div>
+        <div class="tabs">about</div>
+        <div class="tabs">stats</div>
+        <div class="tabs">Edit</div>
+
 
     </nav>
 
-    <section>
+    <section class="log">
         <h2> Have you had a Chance to workout today</h2>
-        <button >Yes</button>
-        <button >No</button>
-        <div>100%</div>
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
 
+
+    </section>
+
+    <section>
+        <aside id="progress-container">
+            <h3 id= "percentage"></h3>
+            <div id="progress-bar"></div>
+        </aside>
+        <aside id="quote">  </aside>
     </section>
 
     <footer>
@@ -74,6 +135,36 @@
             </ul>
         </nav>
     </footer>
-    
+
 </body>
+<script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+<script type="text/javascript" src="scripts/buttons.js">
+
+
+
+
+
+
+
+////api 
+//model 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
 </html>
