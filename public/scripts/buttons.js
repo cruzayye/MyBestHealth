@@ -23,7 +23,6 @@ $('.yes').on('click', function(){
     if (yesCount <= goal){
     document.getElementById('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
 
-
     } 
 
     //percentage
@@ -42,8 +41,6 @@ $('.no').on('click', function(){
     console.log(HourOfDay);
     if(HourOfDay <= 17){
         $('#quote').text('you still got plenty of hours in the day left!');
-
-
     } else{
     $.getJSON('http://quotes.rest/qod').
     then(data => {
@@ -53,9 +50,6 @@ $('.no').on('click', function(){
         $('#quote').text(data.contents.quotes[0].quote);
     })
     }
-
-
-
 })
 };
 
