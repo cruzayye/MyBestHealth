@@ -15,7 +15,9 @@ goalsEntered = 1;
 
 function swapPrompt(e){
   $("#goalSpan, #goalForm").fadeOut(1000, function(){
+    $("#goalForm").trigger("reset");
     $("#promptZone").text(goalTypes[e]);
+    $("#emptyGoal").text('')
     $("#goalSpan, #goalForm").fadeIn();
   });
   goalsEntered++;
