@@ -37,7 +37,7 @@ $("#goalSubmit").click(function(event){
 
 $("#finalSubmit").click(function(event){
   event.preventDefault();
-  window.location.replace('/profile.html')
+  window.location.replace('/profile.html');
 });
 
 function retrieveToday(){
