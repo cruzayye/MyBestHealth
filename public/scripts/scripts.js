@@ -16,11 +16,11 @@ $("#submitButton").click(function(event){
   formFlip(personalForm, exerGoalForm);
 });
 
-$("#goalSubmit").click(function(event){
+$("#goalSubmit, #finalSubmit").click(function(event){
   event.preventDefault();
   var startDate = retrieveToday();
   let goal = new Goal({
-    type: 'exercise',
+    type: goalTypes[(goalsEntered - 1)],
     what: $('#what').val(),
     howOften: $('#howOften').val(),
     startDate: startDate,
@@ -28,6 +28,16 @@ $("#goalSubmit").click(function(event){
   })
   console.log(goal);
   goal.insertGoal();
+});
+
+$("#goalSubmit").click(function(event){
+  event.preventDefault();
+  swapPrompt(goalsEntered);
+});
+
+$("#finalSubmit").click(function(event){
+  event.preventDefault();
+  window.location.replace('/profile.html')
 });
 
 function retrieveToday(){

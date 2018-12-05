@@ -21,6 +21,8 @@ app.use(express.static('./public'));
 
 app.get('/', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
+app.get('/profile', (request, response) =>  response.sendFile('profile.html', {root: './public'}));
+
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
 app.post('/users', function(request, response){

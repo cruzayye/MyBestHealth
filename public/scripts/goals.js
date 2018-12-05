@@ -11,11 +11,18 @@ Goal.prototype.insertGoal = function(callback) {
 
 goalTypes = ['exercise', 'diet', 'mind'];
 
-goalsEntered = 0;
+goalsEntered = 1;
 
 function swapPrompt(e){
   $("#goalSpan, #goalForm").fadeOut(1000, function(){
     $("#promptZone").text(goalTypes[e]);
     $("#goalSpan, #goalForm").fadeIn();
   });
+  goalsEntered++;
+  console.log(goalsEntered);
+  if (goalsEntered == 3){
+      console.log('It\'s three!');
+      $("#goalSubmit").hide();
+      $("#finalSubmit").show();
+  };
 };
