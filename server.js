@@ -25,6 +25,8 @@ app.get('/profile', (request, response) =>  response.sendFile('profile.html', {r
 
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
+
+
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)

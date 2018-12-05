@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <style>
+        section{
+            display: flex;
+            justify-content: center;
+
+        }
+
+
+
+    </style>
+    <script id="quote-template" type="text/x-handlebars-template">
+
+            <p>
+              <h3>{{contents}}</h3>
+            <p>
+            
+            <!-- <p>Description: {{description}}</p>
+            <p>Language: {{language}}</p>
+            <p>Created: {{created_at}}</p>
+            <p>Last updated: {{updated_at}}</p>
+            {{#if watchers_count}}
+              <p>{{watchers_count}} watching this repo</p>
+            {{/if}} -->
+          
+      </script>
+
+</head>
+
+<body>
+    <nav>
+        <div id="logo">logo</div>
+        <div class="tabs">home</div>
+        <div class="tabs">about</div>
+        <div class="tabs">stats</div>
+        <div class="tabs">Edit</div>
+    </nav>
+    <section >
+        <form id="loginPage">
+          <h2>Login</h2>
+          <label>username</label><br>
+          <input type="text" name="username" id="username"><br>
+          <label>password</label><br>
+          <input type="text" name="password" id="password"><br>
+        </form>
+      </section>
+
+
+
+
+
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                    copyright: 2018
+                </li>
+                <li>
+                    Stay live, feel better
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+<script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+<script type="text/javascript" src="scripts/buttons.js">
+
+
+
+
+</script>
+
+</html>

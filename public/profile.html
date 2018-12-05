@@ -23,6 +23,15 @@
 
 
 </style>
+    <script id="user-profile" type="text/x-handlebars-template">
+        <div class="content template project-details"  data-project="{{name}}">
+            <h2>Name: {{name}}</h2>
+            <h2>age: {{age}}</h2>
+            <h2>height: {{heightFeet}}</h2>
+            <h2>weight: {{weight}}</h2>
+
+ 
+</script>
 </head>
 
 <body>
@@ -35,11 +44,7 @@
     </nav>
     <section class= "userInfo">
         <!-- <h1>This is you</h1> -->
-        <aside>
-            <h2> Name: Jo</h2>
-            <h2> Age: 89</h2>
-            <h2> weight: 89 lb</h2>
-            <h2> height: 7' 5"</h2>
+        <aside id = "profile-user">
         </aside>
         <aside class="categories">
             <button> Mind</button>
@@ -80,5 +85,11 @@
     </footer>
 
 </body>
+<script type='text/javascript' src='scripts/jquery-3.3.1.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+<script type="text/javascript" src="scripts/users.js"></script>
+<script type="text/javascript" src="scripts/goals.js"></script>
+<script type="text/javascript" src="scripts/getuser.js"></script>
 
 </html>
