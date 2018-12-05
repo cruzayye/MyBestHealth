@@ -1,3 +1,15 @@
-#goalForm {
+#exerGoalForm {
+  display:none;
+}
+
+#dietGoalForm {
+  display:none;
+}
+
+#mindGoalForm {
+  display:none;
+}
+
+#finalSubmit {
   display:none;
 }

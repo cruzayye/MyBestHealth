@@ -1,9 +1,5 @@
 page = {};
 
-page.saveID = function(){
-  localStorage.setItem("userID", )
-}
-
 $("#submitButton").click(function(event){
   event.preventDefault();
   let user = new User({
@@ -17,22 +13,41 @@ $("#submitButton").click(function(event){
   })
   console.log(user);
   user.insertRecord();
-  formFlip(personalForm, goalForm);
+  formFlip(personalForm, exerGoalForm);
 });
 
-$("#goalSubmitButton").click(function(event){
+$("#goalSubmit, #finalSubmit").click(function(event){
   event.preventDefault();
-  var d = new Date();
-  var n = d.getDate();
+  var startDate = retrieveToday();
   let goal = new Goal({
+    type: goalTypes[(goalsEntered - 1)],
     what: $('#what').val(),
     howOften: $('#howOften').val(),
-    date: n,
+    startDate: startDate,
     user_id: localStorage.user_id
   })
   console.log(goal);
   goal.insertGoal();
-})
+});
+
+$("#goalSubmit").click(function(event){
+  event.preventDefault();
+  swapPrompt(goalsEntered);
+});
+
+$("#finalSubmit").click(function(event){
+  event.preventDefault();
+  window.location.replace('/profile.html');
+});
+
+function retrieveToday(){
+   var date1 = new Date();
+   var dayOfMonth = date1.getDate();
+   var year = date1.getFullYear();
+   var month = (date1.getMonth()+1);
+   var thisDate = (month + "-" + dayOfMonth + "-" + year);
+   return(thisDate);
+};
 
 function formFlip(firstForm, secondForm){
   $(firstForm).fadeOut();

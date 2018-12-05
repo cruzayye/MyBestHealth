@@ -5,6 +5,24 @@ function Goal(rawDataObj){
 Goal.all = [];
 
 Goal.prototype.insertGoal = function(callback) {
-  $.post('/goals', {what: this.what, howMuch: this.howMuch, date: this.date, user_id: this.user_id})
+  $.post('/goals', {what: this.what, howMuch: this.howMuch, startDate: this.startDate, user_id: this.user_id})
   .then(callback);
+};
+
+goalTypes = ['exercise', 'diet', 'mind'];
+
+goalsEntered = 1;
+
+function swapPrompt(e){
+  $("#goalSpan, #goalForm").fadeOut(1000, function(){
+    $("#promptZone").text(goalTypes[e]);
+    $("#goalSpan, #goalForm").fadeIn();
+  });
+  goalsEntered++;
+  console.log(goalsEntered);
+  if (goalsEntered == 3){
+      console.log('It\'s three!');
+      $("#goalSubmit").hide();
+      $("#finalSubmit").show();
+  };
 };
