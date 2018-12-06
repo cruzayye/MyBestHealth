@@ -25,6 +25,31 @@ app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: 
 
 
 
+app.post('/signin', function(request, response, next){
+  console.log("signign in");
+  const credentials = request.body;
+  if (!credentials.email || !credentials.password){
+    return next ({ status: 400, message:"Please fill out both fields!",})
+  }
+
+  client.query(`
+  SELECT email, password
+  FROM users
+  WHERE email = $1`,
+  [credentials.email]
+  )
+    .then( result => {
+      response.json({
+        email: result.rows[0].email
+        
+      })
+
+    })
+
+});
+
+
+
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
