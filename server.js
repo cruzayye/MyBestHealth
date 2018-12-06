@@ -77,11 +77,26 @@ app.post('/goals', function(request, response){
   });
 });
 
-app.post('/goalYes', function(request, response, next){
+app.post('/yesCheck', function(request, response, next){
+  const thisGoal = request.body;
+  client.query(`
+    SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.days_yes]
+  )
+  .catch(function(err){
+    console.error(err);
+  });
+});
+
+app.post('/addYes', function(request, response, next){
   const goalInfo = request.body;
   client.query(`
-
-    `)
+    INSERT INTO dates_yes(goal_id, days_yes)
+    VALUES ($1, $2);
+    `,
+  [goalInfo.goal_id, goalInfo.days_yes]
+  ).catch(function(err){
+      console.error(err);
+    });
 })
 
 

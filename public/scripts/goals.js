@@ -47,4 +47,25 @@ Goal.prototype.checkGoals = function(callback) {
 Goal.prototype.toHtml = function() {
   var template = Handlebars.compile($("#goalQuestionTemplate").text());
   return template(this);
+  yesButton();
+  noButton();
 };
+
+//the following function will check as to whether the user has completed a goal today.
+Goal.prototype.checkToday = function() {
+  var dateToday = retrieveToday();
+  console.log(dateToday);
+  goals.forEach(function(){
+    console.log(this);
+  //   $.post("/yesCheck", {dateToday: dateToday, goal_id: this.goal_id})
+  //   .then(function(result){
+  //   result.forEach(function(item){
+  //     goals.push(new Goal(item));
+    })
+  // }
+}
+
+
+Goal.prototype.sayHi = function(){
+  console.log('hi!');
+}
