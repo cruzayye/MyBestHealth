@@ -50,6 +50,7 @@ app.post('/signin', function(request, response, next){
 
 
 
+
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
