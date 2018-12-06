@@ -25,8 +25,6 @@ app.get('/profile', (request, response) =>  response.sendFile('profile.html', {r
 
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
-
-
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
@@ -42,6 +40,19 @@ app.post('/users', function(request, response){
     console.error(err);
   });
 });
+
+app.post('/loginCheck', function(request, response, next) {
+  const localInfo = request.body;
+  client.query(`SELECT * FROM users WHERE user_id = $1`,
+  [localInfo.localId])
+  .then(result => {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
+
 
 app.post('/goals', function(request, response){
   client.query(`

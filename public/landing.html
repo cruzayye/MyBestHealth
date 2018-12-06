@@ -9,57 +9,44 @@
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/base.css">
     <style>
-
-
         h2{
-            font-size: 3em;
+          font-size: 3em;
         }
 
- 
         section{
-            display: grid;
-            grid-template-columns: 3fr 1fr 1fr;
-            align-items: center;
-
+          display: grid;
+          grid-template-columns: 3fr 1fr 1fr;
+          align-items: center;
         }
         /* div{
             border: 1px solid black;
             border-radius: 50%;
             text-align: center;
-
-
         } */
-
-
         section div{
-            width: 50%;
-            background: green;
-            width: 100%;
-            text-align: center;
+          width: 50%;
+          background: green;
+          width: 100%;
+          text-align: center;
         }
 
-            h3{
-               color: white;
-               position: relative;
-               margin: 0;
-   
-           }
-        #progress-container {
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 0 4px white;
-            border-radius: 13px;
-            position: relative;
-            height: 26px;
-            margin-top: 2%;
-            margin-right: 2%;
-            margin-left: 2%;
+        h3{
+         color: white;
+         position: relative;
+         margin: 0;
+       }
+      #progress-container {
+        display: flex;
+        justify-content: center;
+        box-shadow: 0 0 4px white;
+        border-radius: 13px;
+        position: relative;
+        height: 26px;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+      }
 
-        }
-
-
-
-    
         #progress-bar {
             border-radius: 13px;
             height: 26px;
@@ -71,18 +58,13 @@
             z-index: -1;
             }
 
-
-
-
-
-
     </style>
     <script id="quote-template" type="text/x-handlebars-template">
 
             <p>
               <h3>{{contents}}</h3>
             <p>
-            
+
             <!-- <p>Description: {{description}}</p>
             <p>Language: {{language}}</p>
             <p>Created: {{created_at}}</p>
@@ -90,29 +72,20 @@
             {{#if watchers_count}}
               <p>{{watchers_count}} watching this repo</p>
             {{/if}} -->
-          
       </script>
-
 </head>
-
 <body>
     <nav>
-
         <div id="logo">logo</div>
         <div class="tabs">home</div>
         <div class="tabs">about</div>
         <div class="tabs">stats</div>
         <div class="tabs">Edit</div>
-
-
     </nav>
-
     <section class="log">
         <h2> Have you had a Chance to workout today</h2>
         <button class="yes">Yes</button>
         <button class="no">No</button>
-
-
     </section>
 
     <section>
@@ -139,32 +112,10 @@
 </body>
 <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
-<script type="text/javascript" src="scripts/buttons.js">
+<script type="text/javascript" src="scripts/buttons.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+<script type="text/javascript" src="scripts/users.js"></script>
+<script type="text/javascript" src="scripts/goals.js"></script>
 
-
-
-
-
-
-
-////api 
-//model 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
 
 </html>
