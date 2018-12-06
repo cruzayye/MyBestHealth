@@ -33,14 +33,24 @@ app.post('/signin', function(request, response, next){
   }
 
   client.query(`
-  SELECT email, password
+  SELECT email, password, name, age, heightFeet, heightInches, weight, user_id 
   FROM users
   WHERE email = $1`,
   [credentials.email]
   )
     .then( result => {
+      if( !result.rows[0] || result.rows[0].password !== credentials.password || result.rows[0].email !== credentials.email  ) {
+        return next({ status: 401, message: 'invalid username or password' });
+    }
       response.json({
-        email: result.rows[0].email
+        name: result.rows[0].name,
+        email: result.rows[0].email,
+        age: result.rows[0].age,
+        heightFeet: result.rows[0].heightFeet,
+        heightInches: result.rows[0].heightInches,
+        heightInches: result.rows[0].heightInches,
+        weight: result.rows[0].weight,
+        user_id: result.rows[0].user_id
         
       })
 
