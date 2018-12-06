@@ -27,9 +27,7 @@ $("#authentication").click(function(event) {
 
             } 
         })
-        // function(err) {
-        //     console.error(err);
-        //   }
+     
  });
 
 
