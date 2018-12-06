@@ -1,5 +1,11 @@
 page = {};
 
+page.showPrompts = function() {
+  goals.forEach(function(goal){
+    $("#logZone").append(goal.toHtml())
+  })
+}
+
 $("#submitButton").click(function(event){
   event.preventDefault();
   const form = {

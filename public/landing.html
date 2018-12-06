@@ -73,6 +73,11 @@
               <p>{{watchers_count}} watching this repo</p>
             {{/if}} -->
       </script>
+      <script id="goalQuestionTemplate" type="text/x-handlebars-template">
+        <h2> Have you had a chance to {{what}} today</h2>
+        <button class="yes" id={{goal_id}}>Yes</button>
+        <button class="no">No</button>
+       </script>
 </head>
 <body>
     <nav>
@@ -82,10 +87,7 @@
         <div class="tabs">stats</div>
         <div class="tabs">Edit</div>
     </nav>
-    <section class="log">
-        <h2> Have you had a Chance to workout today</h2>
-        <button class="yes">Yes</button>
-        <button class="no">No</button>
+    <section class="log" id="logZone">
     </section>
 
     <section>
@@ -116,6 +118,7 @@
 <script type="text/javascript" src="scripts/scripts.js"></script>
 <script type="text/javascript" src="scripts/users.js"></script>
 <script type="text/javascript" src="scripts/goals.js"></script>
+
 
 
 </html>

@@ -4,10 +4,12 @@ function User(rawDataObj){
 
 User.all = [];
 
+// var localIdentification = 1;
+
 var localIdentification = function(){
   const checkstring = localStorage.getItem('user_id');
   return(checkstring);
-}
+};
 
 User.prototype.insertRecord = function(callback) {
   console.log('posting data.')

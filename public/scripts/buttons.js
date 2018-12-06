@@ -9,12 +9,7 @@ $('.yes').on('click', function(){
     yesCount++;
     // console.log(yesPercentage+=14.28);
     console.log(yesCount);
-
-    var date1 = new Date();
-    var dayOfMonth = date1.getDate();
-    var year = date1.getFullYear();
-    var month = date1.getMonth();
-    console.log(`${month} ${dayOfMonth}, ${year}`);
+    retrieveToday();
     //progress bar
     if (yesCount <= goal){
     document.getElementById('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
