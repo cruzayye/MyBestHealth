@@ -15,24 +15,14 @@
 
         }
 
+  
+
+   
+
 
 
     </style>
-    <script id="quote-template" type="text/x-handlebars-template">
 
-            <p>
-              <h3>{{contents}}</h3>
-            <p>
-            
-            <!-- <p>Description: {{description}}</p>
-            <p>Language: {{language}}</p>
-            <p>Created: {{created_at}}</p>
-            <p>Last updated: {{updated_at}}</p>
-            {{#if watchers_count}}
-              <p>{{watchers_count}} watching this repo</p>
-            {{/if}} -->
-          
-      </script>
 
 </head>
 
@@ -47,10 +37,12 @@
     <section >
         <form id="loginPage">
           <h2>Login</h2>
-          <label>username</label><br>
-          <input type="text" name="username" id="username"><br>
-          <label>password</label><br>
+          <label for="email">Email</label><br>
+          <input type="text" name="email" id="email"><br>
+          <label for="password">password</label><br>
           <input type="text" name="password" id="password"><br>
+          <button id="authentication" type="submit"></button>
+
         </form>
       </section>
 
@@ -75,10 +67,10 @@
 <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 <script type="text/javascript" src="scripts/buttons.js">
-
-
-
-
 </script>
+<script type="text/javascript" src="scripts/credentials.js">
+</script>
+
+
 
 </html>
