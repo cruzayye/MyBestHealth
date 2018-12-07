@@ -80,8 +80,11 @@ app.post('/goals', function(request, response){
 app.post('/yesCheck', function(request, response, next){
   const thisGoal = request.body;
   client.query(`
-    SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.days_yes]
+    SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.dateToday]
   )
+  .then(result => {
+    response.send(result.rows);
+  })
   .catch(function(err){
     console.error(err);
   });

@@ -6,6 +6,8 @@ Goal.all = [];
 
 goals = [];
 
+goalsDone = [];
+
 Goal.prototype.insertGoal = function(callback) {
   $.post('/goals', {what: this.what, howMuch: this.howMuch, startDate: this.startDate, user_id: this.user_id, type:goalType[goalsEntered-1]})
   .then(callback);
@@ -54,17 +56,23 @@ Goal.prototype.toHtml = function() {
 //the following function will check as to whether the user has completed a goal today.
 Goal.prototype.checkToday = function() {
   var dateToday = retrieveToday();
-  console.log(dateToday);
-  goals.forEach(function(){
-    console.log(this);
-  //   $.post("/yesCheck", {dateToday: dateToday, goal_id: this.goal_id})
-  //   .then(function(result){
-  //   result.forEach(function(item){
-  //     goals.push(new Goal(item));
+  goals.forEach(function(goal){
+    $.post("/yesCheck", {dateToday: dateToday, goal_id: goal.goal_id})
+    .then(function(result){
+      console.log(result);
+      result.forEach(function(item){
+        console.log(item.goal_id);
+        goalsDone.push(new Goal(item));
+      })
     })
-  // }
-}
+  })
+  goals.forEach(function(goal){
+    for (i=0; i < goalsDone.length; i++){
+      if(goal.goal_id == goalsDone[i].goal_id)
 
+    }
+  })
+}
 
 Goal.prototype.sayHi = function(){
   console.log('hi!');
