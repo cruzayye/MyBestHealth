@@ -8,13 +8,69 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/base.css">
+
     <style>
+        
         section{
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            /* justify-content: center; */
+            grid-template-rows: 100vh;
+            justify-items: center;
+            align-items: center;
+            
+            
+
+        }
+        .login{
+            /* margin-left: 20%; */
+        }
+        h2{
+            font-size: 2em;
+        }
+        aside:nth-of-type(1){
+            border-right: 1px white solid;
+            padding-right: 10%;
+            /* margin-right: 30%; */
+        }
+
+        aside h2{
+            letter-spacing: 3px;
 
         }
 
+ 
+
+        form > h2{
+            margin-top: 0;
+        
+        }
+
+        input{
+            width: 11rem;
+            margin-bottom: 10%;
+        }
+        ol{
+            border-left: 1px solid white;
+            padding: 2% 0;
+            padding-left: 5%;
+            
+        }
+        li{
+            margin-bottom: 3%;
+            list-style: none;
+            
+        }
+
+        h2:nth-of-type(1), h2:nth-of-type(2), .health{
+            font-size: 3em;
+            color: white;
+            margin-top: -5%;
+        }
+
+
+
+ 
   
 
    
@@ -27,30 +83,50 @@
 </head>
 
 <body>
-    <nav>
-        <div id="logo">logo</div>
-        <div class="tabs">home</div>
-        <div class="tabs">about</div>
-        <div class="tabs">stats</div>
-        <div class="tabs">Edit</div>
-    </nav>
-    <section >
-        <form id="loginPage">
-          <h2>Login</h2>
-          <label for="email">Email</label><br>
-          <input type="text" name="email" id="email"><br>
-          <label for="password">password</label><br>
-          <input type="text" name="password" id="password"><br>
-          <button id="authentication" type="submit"></button>
 
-        </form>
+
+
+    <section >
+        <aside>
+            <h2>
+                MOTIVATION +
+            </h2>
+
+            <h2>
+                ACCOUNTABILITY =
+            </h2>
+
+            <h2 class="health">
+                MY BEST HEALTH 
+            </h2>
+            <h2>
+                How This Works
+            </h2>
+            <ol>
+                <li>Set a goal Based off of a category(mind, body, Nutrition)</li>
+                <li>ex:Excercise 3x a week</li>
+                <li>Everyday you are logged in you will be asked whether or not your committed to your goal for the day. (simply hit yes or no)</li>
+                <li>Everytime you hit yes, your goal will be tracked based off the day</li>
+                <li>Everytime you hit yes, your goal will be tracked based off the day</li>
+            </ol>
+        </aside>
+        <aside class="login">
+            <form id="loginPage">
+                <h2>Login</h2>
+                <label for="email">Email</label><br>
+                <input type="text" name="email" id="email"><br>
+                <label for="password">password</label><br>
+                <input type="text" name="password" id="password"><br>
+                <button id="authentication" type="submit">lets go</button>
+            </form>
+        </aside>
       </section>
 
 
 
 
 
-    <footer>
+    <!-- <footer>
         <nav>
             <ul>
                 <li>
@@ -61,7 +137,7 @@
                 </li>
             </ul>
         </nav>
-    </footer>
+    </footer> -->
 
 </body>
 <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
