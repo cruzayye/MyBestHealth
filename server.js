@@ -25,8 +25,6 @@ app.get('/profile', (request, response) =>  response.sendFile('profile.html', {r
 
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
-
-
 app.post('/signin', function(request, response, next){
   console.log("signign in");
   const credentials = request.body;
@@ -60,9 +58,6 @@ app.post('/signin', function(request, response, next){
 
 });
 
-
-
-
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
@@ -79,6 +74,30 @@ app.post('/users', function(request, response){
   });
 });
 
+app.post('/loginCheck', function(request, response, next) {
+  const localInfo = request.body;
+  client.query(`SELECT * FROM users WHERE user_id = $1`,
+  [localInfo.localId])
+  .then(result => {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
+
+app.post('/goalCheck', function(request, response, next) {
+  const localInfo = request.body;
+  client.query(`SELECT * FROM goals WHERE user_id = $1`,
+  [localInfo.localId])
+  .then(result => {
+    response.send(result.rows);
+  })
+  .catch(function(err) {
+    console.error(err)
+  })
+});
+
 app.post('/goals', function(request, response){
   client.query(`
     INSERT INTO goals(what, howOften, dateStart, user_id)
@@ -90,6 +109,31 @@ app.post('/goals', function(request, response){
     console.error(err);
   });
 });
+
+app.post('/yesCheck', function(request, response, next){
+  const thisGoal = request.body;
+  client.query(`
+    SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.dateToday]
+  )
+  .then(result => {
+    response.send(result.rows);
+  })
+  .catch(function(err){
+    console.error(err);
+  });
+});
+
+app.post('/addYes', function(request, response, next){
+  const goalInfo = request.body;
+  client.query(`
+    INSERT INTO dates_yes(goal_id, days_yes)
+    VALUES ($1, $2);
+    `,
+  [goalInfo.goal_id, goalInfo.days_yes]
+  ).catch(function(err){
+      console.error(err);
+    });
+})
 
 
 loadDB();
@@ -124,10 +168,10 @@ function loadGoals(){
       fs.readFile('./public/data/goals.json', (err, fd) => {
         JSON.parse(fd.toString()).forEach(ele => {
           client.query(
-            `INSERT INTO goals(what, howOften, dateStart, user_id)
+            `INSERT INTO goals(what, howOften, dateStart, user_id, type)
             VALUES ($1, $2, $3, $4);
             `,
-            [ele.what, ele.howOften, ele.dateStart, ele.user_id]
+            [ele.what, ele.howOften, ele.dateStart, ele.user_id, ele.type]
           )
           .catch(console.error);
         })
@@ -135,6 +179,26 @@ function loadGoals(){
     }
   })
 }
+
+function loadYeses(){
+  client.query('SELECT COUNT(*) FROM dates_yes')
+  .then(result => {
+    if(!parseInt(result.rows[0].count)){
+      fs.readFile('./public/data/dates_yes.json', (err, fd) => {
+        JSON.parse(fd.toString()).forEach(ele => {
+          client.query(
+            `INSERT INTO dates_yes(goal_id, days_yes)
+            VALUES ($1, $2);
+            `,
+            [ele.goal_id, ele.days_yes]
+          )
+          .catch(console.error);
+        })
+      })
+    }
+  })
+}
+
 
 function loadDB() {
   client.query(`
@@ -165,11 +229,24 @@ function loadDB() {
       howOften VARCHAR(255),
       dateStart VARCHAR(255),
       dateEnd VARCHAR(255),
-      user_id VARCHAR(255)
+      user_id VARCHAR(255),
     );`
   )
   .then(function(){
     loadGoals();
+  })
+  .catch(function(err){
+    console.error(err)
+  })
+  client.query(`
+    CREATE TABLE IF NOT EXISTS
+    dates_yes (
+      goal_id VARCHAR(255),
+      days_yes VARCHAR(255)
+    );`
+  )
+  .then(function(){
+    loadYeses();
   })
   .catch(function(err){
     console.error(err)
