@@ -70,3 +70,12 @@ ul{
     ;
     text-align: center;
 }
+
+a{
+    text-decoration: none;
+    color: pink;
+}
+a:hover{
+    text-decoration: none;
+    color: white;;
+}

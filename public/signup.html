@@ -7,8 +7,8 @@
 
     #container{
       display: grid;
+      grid-template-columns: auto;
       justify-content: center;
-      align-content: center;
       margin: 0;
       
     }
@@ -19,15 +19,18 @@
     
     h1{
       font-size: 3em;
+      color: white;
     }
 
     h2{
-      justify-self:start;
+      font-size: 1.7em;
     }
 
     form{
-      justify-items: start;
+      font-size: 1.2em;
     }
+
+ 
     
   </style>
 </head>
@@ -42,10 +45,10 @@
       "My name is <input type="text" name="name" id="name" class="requiredField">."<br>
       "I am <input type="number" name="age" id="age" class="requiredField"> years old."<br>
       "I am <input type="number" name="heightFeet" id="heightFeet" class="requiredField"> feet and <input type="number" name="heightInches" id="heightInches" required> inches tall."<br>
-      "I weigh<input type="number" name="weight" id="weight" class="requiredField"> pounds."<br><br>
+      "I weigh <input type="number" name="weight" id="weight" class="requiredField"> pounds."<br><br>
       Now pick some login info:<br>
       email <input type="email" name="email" id="email" class="requiredField"><br>
-      pick a password:<input type="password" name="password" id="password" class="requiredField"><br>
+      pick a password: <input type="password" name="password" id="password" class="requiredField"><br>
       <span id="emptyError"></span><br>
       <input id='submitButton' type='submit'></input>
     </form>
