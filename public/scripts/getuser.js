@@ -5,7 +5,7 @@
 //     this.heightFeet = rawDataObj.heightInches;
 //     this.weight = rawDataObj.weight;
 // }
-//
+
 // User.all = {};
 
 User.toHtml = function () {

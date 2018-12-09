@@ -17,6 +17,7 @@ $("#authentication").click(function(event) {
             localStorage.setItem("user_id", JSON.stringify(response.user_id));
 
             userLogged = response;
+            window.location.replace('/landing.html');
         })
         .fail(error => {
             if(error.status == 401){

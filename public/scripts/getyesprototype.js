@@ -50,7 +50,6 @@ function appendYes() {
   };
 
 
-
 ////////////////status bar
 
 // goals.statusBar = function() {
@@ -81,6 +80,7 @@ function appendYes() {
 
 $(".categories").on('click', 'button', function() {
     // theseGoals = [];
+
     $('#goalSection').children().hide();
     $('#goalSection').css('display', 'block');
     let data = $(this).data('type');
