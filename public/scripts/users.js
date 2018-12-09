@@ -4,8 +4,6 @@ function User(rawDataObj){
 
 User.all = [];
 
-// var localIdentification = 1;
-
 var localIdentification = function(){
   const checkstring = localStorage.getItem('user_id');
   return(checkstring);
@@ -23,13 +21,14 @@ User.prototype.insertRecord = function(callback) {
 
 
 //this function checks the user id in local storage and brings back any user objects which share that id. Presently, it returns the age of the user, just for the sake of ensuring I have this right.
-User.prototype.getFromDB = function(callback) {
+User.getFromDB = function(callback) {
   let identification = {localId: localIdentification()}
   console.log(identification)
-  $.post("/loginCheck", identification)
+  $.post('/loginCheck', identification)
   .then(function(result) {
     localUser = (result[0]);
     return(localUser);
+    localStorage.setItem('user_id', JSON.stringify(result[0].user_id))
     if (callback) callback();
   });
 };
