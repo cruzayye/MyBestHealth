@@ -12,13 +12,14 @@
 
 goals = [];
 
-function Goals(goalObj) {
-    this.type = goalObj.type;
-    this.what = goalObj.what;
-    this.howOften = goalObj.howOften;
-    this.dateStart = goalObj.dateStart;
-    this.dateEnd = goalObj.dateEnd;
-    this.user_id = goalObj.user_id;
+function Goals(yesObj) {
+    this.type = yesObj.type;
+    this.what = yesObj.what;
+    this.howOften = yesObj.howOften;
+    this.dateStart = yesObj.dateStart;
+    this.dateEnd = yesObj.dateEnd;
+    this.user_id = yesObj.user_id;
+    this.goal_id = yesObj.user_id;
 }
 
 
@@ -69,52 +70,61 @@ function appendGoals() {
 
 
 
-
 function initGoals() {
     Goals.getGoals()
 }
 
 initGoals();
+appendGoals();
 
 
 
-/////get yes
 
 
 ////CLICK FUNCTIONS
 
+///////////////////////////////////////////////get yes
+
+
+
+
+//   function compareIds(){
+//     yes.forEach(function(id){
+//         if (id.goal_id == goals.goal_id){
+//             console.log(yes.length);
+//         }
+
+//     });
+
+// }
 
 
 
 $(".categories").on('click', 'button', function() {
-
-    // $('#projectSection').children().hide();
+ 
+    $('#goalSection').children().hide();
   
-    // $('#projectSection').css('display', 'block');
-    let data = $(this).data('type');//takes the value of the div ex: data-project = "Bus Mall"
+    $('#goalSection').css('display', 'block');
+    let data = $(this).data('type');
     console.log(data);
-    // $('[data-project="' + data + '"]').show();
     
-    //make a loop that goes over the data attr and matches the name of the array in order to display. 
+ 
+    
+  
     goals.forEach(function(goal) {
       if(goal.type == data){
-        //  $('#projectSection').children('[data-project="' + data + '"]').fadeIn();
+         $('#goalSection').children('[data-type="' + data + '"]').fadeIn();
         console.log(goal);  
         // $('#projectSection').focus();
-  
-  
         
       }  
     });
+
+
+
   });
   
-  const setTakeAwayList = () => {
-    const $projectsList = projectsArray.map(tAways => {
-      const $TaItems = tAways.takeAways.map(ta => $('<li>').text(ta));
-      const $taList = $('<ul>').append($TaItems);
-      return $('<li>').append($taList);
-  
-    });
-    $('.takeAways').append($projectsList);
-  
-  }
+
+
+
+

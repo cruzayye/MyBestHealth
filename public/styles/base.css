@@ -6,6 +6,7 @@ body{
     margin: 0;
     background-image: url("../images/Grade\ Grey.jpg");
     font-family: 'Patua One', cursive;
+    background-size: cover;
 
 }
 
