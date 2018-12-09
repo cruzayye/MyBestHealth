@@ -12,7 +12,7 @@
 <style>
     .userInfo{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto 1fr;
         margin-top: 3%;
     }
 
@@ -28,10 +28,25 @@
     
     }
 
+    .profile{
+        border-left: solid white 1px;
+        border-bottom: solid white 1px;
+        margin-right: -50%;  
+        padding-left: 10%;      
+    }
+
+    .categories{
+        margin-left: 20%;
+    }
+
+    #goalSection > div{
+        border-bottom: 1px solid white;
+    }
+
 
 </style>
     <script id="user-profile" type="text/x-handlebars-template">
-        <div class="content template project-details"  >
+        <div class="profile"  >
             <h2>Name: {{name}}</h2>
             <h2>age: {{age}}</h2>
             <h2>height: {{heightFeet}}</h2>
@@ -65,7 +80,7 @@
         <aside class="categories">
             <button class = "button" data-type="mind"> Mind</button>
             <button class = "button" data-type="exercise"> Body</button>
-            <button data-type="diet" > diet</button>
+            <button class = "button" data-type="diet" > diet</button>
         </aside>
     </section>
 

@@ -9,7 +9,7 @@ function Yes(yesObj) {
 Yes.prototype.toHtml = function() {
     var tempFiller = Handlebars.compile( $("#sectionGoal").html() );
   
-    var filledTemplate = tempFiller( this ); //this is referring to?
+    var filledTemplate = tempFiller( this ); 
   
     return filledTemplate;
      
