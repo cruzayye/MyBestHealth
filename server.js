@@ -25,39 +25,6 @@ app.get('/profile', (request, response) =>  response.sendFile('profile.html', {r
 
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
-app.post('/signin', function(request, response, next){
-  console.log("signign in");
-  const credentials = request.body;
-  if (!credentials.email || !credentials.password){
-    return next ({ status: 400, message:"Please fill out both fields!",})
-  }
-
-  client.query(`
-  SELECT email, password, name, age, heightFeet, heightInches, weight, user_id 
-  FROM users
-  WHERE email = $1`,
-  [credentials.email]
-  )
-    .then( result => {
-      if( !result.rows[0] || result.rows[0].password !== credentials.password || result.rows[0].email !== credentials.email  ) {
-        return next({ status: 401, message: 'invalid username or password' });
-    }
-      response.json({
-        name: result.rows[0].name,
-        email: result.rows[0].email,
-        age: result.rows[0].age,
-        heightFeet: result.rows[0].heightFeet,
-        heightInches: result.rows[0].heightInches,
-        heightInches: result.rows[0].heightInches,
-        weight: result.rows[0].weight,
-        user_id: result.rows[0].user_id
-        
-      })
-
-    })
-
-});
-
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
@@ -76,6 +43,7 @@ app.post('/users', function(request, response){
 
 app.post('/loginCheck', function(request, response, next) {
   const localInfo = request.body;
+  console.log(localInfo);
   client.query(`SELECT * FROM users WHERE user_id = $1`,
   [localInfo.localId])
   .then(result => {
@@ -134,6 +102,8 @@ app.post('/addYes', function(request, response, next){
       console.error(err);
     });
 })
+
+app.post('')
 
 
 loadDB();

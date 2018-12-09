@@ -1,33 +1,3 @@
-//
-//
-// goals = [];
-//
-// function Goals(yesObj) {
-//     this.type = yesObj.type;
-//     this.what = yesObj.what;
-//     this.howOften = yesObj.howOften;
-//     this.dateStart = yesObj.dateStart;
-//     this.dateEnd = yesObj.dateEnd;
-//     this.user_id = yesObj.user_id;
-//     this.goal_id = yesObj.user_id;
-//     this.percentageBar = function(){
-//         var yesCount = 2
-//         var goal = this.howOften;
-//         var yesPercentage = 4;
-//         var yesIncrement = 100 / goal;
-//         //need to figure out where to place this code.
-//
-//         // if (yesCount <= goal){
-//         //     document.getElementsByClassName('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
-//
-//         //     }
-//
-//         var percentage = Math.round(yesPercentage+=yesIncrement);
-//         return percentage;
-//
-//
-//     }
-// }
 
 Goal.prototype.toSectionHtml = function() {
   var tempFiller = Handlebars.compile( $("#sectionGoal").html() );
@@ -43,21 +13,19 @@ Goal.getGoals = function () {
 }
 
 Goal.loadAll = function (rawData) {
-    rawData.forEach(function (ele) {
-        goals.push(new Goal(ele));
-    })
+  rawData.forEach(function (ele) {
+      goals.push(new Goal(ele));
+  })
 }
 
 function appendGoals() {
-    goals.forEach(function(singleGoal){
-      $('#goalSection').append(singleGoal.toSectionHtml());
-    });
-
-  };
-
+  goals.forEach(function(singleGoal){
+    $('#goalSection').append(singleGoal.toSectionHtml());
+  });
+};
 
 function initGoals() {
-    Goal.getGoals()
+  Goal.getGoals()
 }
 
 initGoals();
