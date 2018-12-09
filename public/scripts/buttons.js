@@ -10,6 +10,8 @@ $('.yes').on('click', function(){
     // console.log(yesPercentage+=14.28);
     console.log(yesCount);
     $.post('/addYes', {goal_id: this.id, days_yes: retrieveToday()})
+    console.log(this.id);
+    $('#' + this.id).fadeOut();
     //progress bar
     if (yesCount <= goal){
     document.getElementById('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
@@ -41,5 +43,9 @@ function noButton(){
   })
 };
 
-yesButton();
-noButton();
+function buttonInit(){
+  yesButton();
+  noButton();
+}
+
+buttonInit();

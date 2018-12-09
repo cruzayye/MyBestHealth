@@ -47,7 +47,7 @@ Goal.prototype.checkGoals = function(callback) {
     })
     localStorage.setItem("goals", JSON.stringify(result));
     if (callback) callback();
-    })
+  })
 };
 
 Goal.prototype.toHtml = function() {

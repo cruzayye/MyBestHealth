@@ -13,7 +13,7 @@
           font-size: 3em;
         }
 
-        section{
+        .interiorSection{
           display: grid;
           grid-template-columns: 3fr 1fr 1fr;
           align-items: center;
@@ -74,9 +74,11 @@
             {{/if}} -->
       </script>
       <script id="goalQuestionTemplate" type="text/x-handlebars-template">
-        <h2> Have you had a chance to {{what}} today</h2>
-        <button class="yes" id={{goal_id}}>Yes</button>
-        <button class="no">No</button>
+        <section id={{goal_id}} class="interiorSection">
+          <h2> Have you had a chance to {{what}} today</h2>
+          <button class="yes" id={{goal_id}}>Yes</button>
+          <button class="no">No</button>
+        </section>
        </script>
 </head>
 <body>
