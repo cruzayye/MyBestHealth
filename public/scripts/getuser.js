@@ -48,7 +48,3 @@ function init() {
 }
 
 init();
-
-
-
-

@@ -6,7 +6,11 @@ Goal.all = [];
 
 goals = [];
 
+goalIds = [];
+
 goalsDone = [];
+
+doneIds = [];
 
 Goal.prototype.insertGoal = function(callback) {
   $.post('/goals', {what: this.what, howMuch: this.howMuch, startDate: this.startDate, user_id: this.user_id, type:goalType[goalsEntered-1]})
@@ -43,7 +47,7 @@ Goal.prototype.checkGoals = function(callback) {
     })
     localStorage.setItem("goals", JSON.stringify(result));
     if (callback) callback();
-    })
+  })
 };
 
 Goal.prototype.toHtml = function() {
@@ -66,17 +70,35 @@ Goal.prototype.checkToday = function() {
       })
     })
   })
-  goals.forEach(function(goal){
-    for (i=0; i < goalsDone.length; i++){
-      if(goal.goal_id == goalsDone[i].goal_id)
-      console.log("need to fill something in")
+}
 
-    }
+Goal.prototype.filterIds = function(){
+  goals.forEach(function(obj){
+    goalIds.push(obj.goal_id.toString());
   })
 }
+
+Goal.prototype.filterTodayIds = function(){
+  goalsDone.forEach(function(obj){
+    doneIds.push(obj.goal_id);
+  })
+}
+
+Goal.prototype.filterOutToday = function(){
+  var toDraw = goalIds.filter((e) => !doneIds.includes(e));
+  return(toDraw);
+}
+
 
 Goal.prototype.sayHi = function(){
   console.log('hi!');
 }
 
+
 console.log("goals.js connected")
+
+// Goal.prototype.checkGoals();
+// Goal.prototype.checkToday();
+// Goal.prototype.filterIds();
+// Goal.prototype.filterTodayIds();
+

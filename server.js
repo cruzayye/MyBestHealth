@@ -110,18 +110,18 @@ app.post('/goals', function(request, response){
   });
 });
 
-app.post('/yesCheck', function(request, response, next){
-  const thisGoal = request.body;
-  client.query(`
-    SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.dateToday]
-  )
-  .then(result => {
-    response.send(result.rows);
-  })
-  .catch(function(err){
-    console.error(err);
-  });
-});
+// app.post('/yesCheck', function(request, response, next){
+//   const thisGoal = request.body;
+//   client.query(`
+//     SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.dateToday]
+//   )
+//   .then(result => {
+//     response.send(result.rows);
+//   })
+//   .catch(function(err){
+//     console.error(err);
+//   });
+// });
 
 app.post('/addYes', function(request, response, next){
   const goalInfo = request.body;
@@ -169,7 +169,7 @@ function loadGoals(){
         JSON.parse(fd.toString()).forEach(ele => {
           client.query(
             `INSERT INTO goals(what, howOften, dateStart, user_id, type)
-            VALUES ($1, $2, $3, $4);
+            VALUES ($1, $2, $3, $4, $5);
             `,
             [ele.what, ele.howOften, ele.dateStart, ele.user_id, ele.type]
           )
@@ -187,10 +187,10 @@ function loadYeses(){
       fs.readFile('./public/data/dates_yes.json', (err, fd) => {
         JSON.parse(fd.toString()).forEach(ele => {
           client.query(
-            `INSERT INTO dates_yes(goal_id, days_yes)
+            `INSERT INTO dates_yes(days_yes, goal_id)
             VALUES ($1, $2);
             `,
-            [ele.goal_id, ele.days_yes]
+            [ele.days_yes, ele.goal_id]
           )
           .catch(console.error);
         })
@@ -229,7 +229,7 @@ function loadDB() {
       howOften VARCHAR(255),
       dateStart VARCHAR(255),
       dateEnd VARCHAR(255),
-      user_id VARCHAR(255),
+      user_id VARCHAR(255)
     );`
   )
   .then(function(){
@@ -241,8 +241,8 @@ function loadDB() {
   client.query(`
     CREATE TABLE IF NOT EXISTS
     dates_yes (
-      goal_id VARCHAR(255),
-      days_yes VARCHAR(255)
+      days_yes VARCHAR(255),
+      goal_id VARCHAR(255)
     );`
   )
   .then(function(){

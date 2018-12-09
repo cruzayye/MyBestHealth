@@ -8,9 +8,19 @@
   "user_id":"1"
   },
   {
-  "type": "exercise",
-  "what": "run",
+
+  "type": "diet",
+  "what": "skip adding sugar to coffee",
   "howOften": "3",
+  "dateStart":"",
+  "dateEnd":"",
+  "user_id":"1"
+  },
+  {
+
+  "type": "mind",
+  "what": "focus on breathing for five minutes",
+  "howOften": "5",
   "dateStart":"",
   "dateEnd":"",
   "user_id":"1"
