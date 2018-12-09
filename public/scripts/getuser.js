@@ -5,7 +5,7 @@
 //     this.heightFeet = rawDataObj.heightInches;
 //     this.weight = rawDataObj.weight;
 // }
-//
+
 // User.all = {};
 
 User.prototype.toHtml = function () {
@@ -26,7 +26,7 @@ User.getUser = function () {
         appendUser();
     } else
         //still need to fill in code for localStorage
-        $.get('data/users.json', showFile);
+        $.get('/user', showFile);
     function showFile(response) {
         localStorage.setItem("user", JSON.stringify(response));
         //once we get our data do something with it.

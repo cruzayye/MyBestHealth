@@ -41,7 +41,6 @@ Goals.prototype.toHtml = function() {
 
 
 
-
 Goals.getGoals = function () {
     if (localStorage.goals) {
         Goals.loadAll(JSON.parse(localStorage.goals));

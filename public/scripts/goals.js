@@ -95,7 +95,32 @@ Goal.prototype.sayHi = function(){
 }
 
 
-console.log("goals.js connected")
+
+
+
+
+
+
+/////////////////////jc
+// console.log("goals.js connected")
+
+// Goal.prototype.toHtml = function() {
+//   var tempFiller = Handlebars.compile( $("#sectionGoal").html() );
+
+//   var filledTemplate = tempFiller( this ); 
+
+//   return filledTemplate;
+   
+//   };
+
+
+// function appendGoals() {
+//   goals.forEach(function(singleGoal){
+//     $('#goalSection').append(singleGoal.toHtml());
+//   });
+
+// };
+
 
 // Goal.prototype.checkGoals();
 // Goal.prototype.checkToday();
