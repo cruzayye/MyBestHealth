@@ -48,3 +48,51 @@ function appendYes() {
     });
   
   };
+
+
+
+
+// attempted to push goals clicked goal type here so we could  use the next line of code which compars values.
+// console.log(Object.is(goals.goal_id, yes.goal_id));  
+
+
+var theseGoals = []
+var theseGoalsYes = 0;
+
+
+
+$(".categories").on('click', 'button', function() {
+    theseGoals = [];
+ 
+    $('#goalSection').children().hide();
+  
+    $('#goalSection').css('display', 'block');
+    let data = $(this).data('type');
+    // console.log(data);
+    
+ 
+    
+    goals.forEach(function(goal) {
+
+      if(goal.type == data){
+         $('#goalSection').children('[data-type="' + data + '"]').fadeIn();
+        // console.log(goal);
+        theseGoals.push(goal);
+
+        // $('#projectSection').focus();
+        
+      }
+
+
+
+
+    });
+
+
+  
+
+
+
+
+  });
+  

@@ -98,32 +98,11 @@ appendGoals();
 
 // }
 
-
-
-$(".categories").on('click', 'button', function() {
- 
-    $('#goalSection').children().hide();
-  
-    $('#goalSection').css('display', 'block');
-    let data = $(this).data('type');
-    console.log(data);
-    
- 
-    
-  
-    goals.forEach(function(goal) {
-      if(goal.type == data){
-         $('#goalSection').children('[data-type="' + data + '"]').fadeIn();
-        console.log(goal);  
-        // $('#projectSection').focus();
-        
-      }  
-    });
+// console.log(Object.is(goals.goal_id, yes.goal_id));  
 
 
 
-  });
-  
+
 
 
 
