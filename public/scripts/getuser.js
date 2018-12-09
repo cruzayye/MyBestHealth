@@ -1,22 +1,21 @@
 
-function User(rawDataObj) {
-    this.name = rawDataObj.name;
-    this.age = rawDataObj.age;
-    this.heightFeet = rawDataObj.heightInches;
-    this.weight = rawDataObj.weight;
-}
-
-User.all = {};
+// function User(rawDataObj) {
+//     this.name = rawDataObj.name;
+//     this.age = rawDataObj.age;
+//     this.heightFeet = rawDataObj.heightInches;
+//     this.weight = rawDataObj.weight;
+// }
+//
+// User.all = {};
 
 User.prototype.toHtml = function () {
     var tempFiller = Handlebars.compile($('#user-profile').html());
     var filledTemplate = tempFiller(this);
     return filledTemplate;
-
 };
 
 function appendUser() {
-    $('#profile-user').append(User.all.toHtml());
+  $('#profile-user').append(User.all.toHtml());
 };
 
 
@@ -30,7 +29,7 @@ User.getUser = function () {
         $.get('data/users.json', showFile);
     function showFile(response) {
         localStorage.setItem("user", JSON.stringify(response));
-        //once we get our data do something with it. 
+        //once we get our data do something with it.
         User.loadAll(response);
         appendUser();
     }
@@ -49,7 +48,6 @@ function init() {
 }
 
 init();
-
 
 
 
