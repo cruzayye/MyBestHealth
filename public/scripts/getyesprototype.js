@@ -51,6 +51,24 @@ function appendYes() {
 
 
 
+////////////////status bar
+
+// goals.statusBar = function() {
+//     var goal = this.howOften;
+//     var yesPercentage = 4;
+//     var yesIncrement = 100 / goal;
+
+//     var percentage = Math.round(yesPercentage+=yesIncrement);
+//     console.log(percentage);
+//     $(".percentage").text(percentage + "%");
+     
+//     };
+
+//     goals.statusBar()
+
+
+
+
 
 // attempted to push goals clicked goal type here so we could  use the next line of code which compars values.
 // console.log(Object.is(goals.goal_id, yes.goal_id));  
@@ -73,7 +91,6 @@ $(".categories").on('click', 'button', function() {
  
     
     goals.forEach(function(goal) {
-
       if(goal.type == data){
          $('#goalSection').children('[data-type="' + data + '"]').fadeIn();
         // console.log(goal);
@@ -88,10 +105,7 @@ $(".categories").on('click', 'button', function() {
 
     });
 
-
-  
-
-
+    
 
 
   });

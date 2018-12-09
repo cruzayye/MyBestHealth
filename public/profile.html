@@ -43,6 +43,44 @@
         border-bottom: 1px solid white;
     }
 
+    .progress-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            box-shadow: 0 0 4px white;
+            border-radius: 13px;
+            position: relative;
+            height: 26px;
+            margin-top: 2%;
+            margin-right: 2%;
+            margin-left: 2%;
+            margin-bottom: 2%;
+     }
+    
+     .progress-bar {
+            border-radius: 13px;
+            height: 26px;
+            width: 0;
+            background-color: #FF443B;
+            position: absolute;
+            top: -1px;
+            left: 0;
+            z-index: -1;
+    }
+
+    h3.percentage {
+
+        align-self: center;
+    }
+
+.progress-bar{
+    
+    background: #60163d;
+    ;
+    align-self: center;
+}
+
+
 
 </style>
     <script id="user-profile" type="text/x-handlebars-template">
@@ -51,6 +89,7 @@
             <h2>age: {{age}}</h2>
             <h2>height: {{heightFeet}}</h2>
             <h2>weight: {{weight}}</h2>
+ 
         </div>
 
 
@@ -59,6 +98,10 @@
     <div data-type="{{type}}">
     <h2> {{what}}</h2>
     <h2> Week to Date: {{type}} of {{howOften}} </h2>
+    <aside class="progress-container">
+            <h3 class= "percentage"> {{percentageBar}}%</h3>
+            <div class="progress-bar"></div>
+    </aside>
     </div>
 
 </script>
