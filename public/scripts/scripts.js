@@ -7,6 +7,11 @@ page.showPrompts = function() {
   buttonInit();
 }
 
+page.initGoalTracking = function(){
+  Goal.prototype.checkGoals();
+  page.showPrompts();
+}
+
 $("#submitButton").click(function(event){
   event.preventDefault();
   const form = {

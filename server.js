@@ -136,7 +136,7 @@ function loadGoals(){
         JSON.parse(fd.toString()).forEach(ele => {
           client.query(
             `INSERT INTO goals(what, howOften, dateStart, user_id, type)
-            VALUES ($1, $2, $3, $4);
+            VALUES ($1, $2, $3, $4, $5);
             `,
             [ele.what, ele.howOften, ele.dateStart, ele.user_id, ele.type]
           )
@@ -196,7 +196,7 @@ function loadDB() {
       howOften VARCHAR(255),
       dateStart VARCHAR(255),
       dateEnd VARCHAR(255),
-      user_id VARCHAR(255),
+      user_id VARCHAR(255)
     );`
   )
   .then(function(){
