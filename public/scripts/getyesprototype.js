@@ -8,13 +8,13 @@ function Yes(yesObj) {
 
 Yes.prototype.toHtml = function() {
     var tempFiller = Handlebars.compile( $("#sectionGoal").html() );
-  
-    var filledTemplate = tempFiller( this ); 
-  
+
+    var filledTemplate = tempFiller( this );
+
     return filledTemplate;
-     
+
     };
-  
+
 
 Yes.getYes = function () {
     if (localStorage.yes) {
@@ -46,7 +46,7 @@ function appendYes() {
     Yes.forEach(function(project){
       $('#Yesection').append(project.toHtml());
     });
-  
+
   };
 
 
@@ -61,7 +61,7 @@ function appendYes() {
 //     var percentage = Math.round(yesPercentage+=yesIncrement);
 //     console.log(percentage);
 //     $(".percentage").text(percentage + "%");
-     
+
 //     };
 
 //     goals.statusBar()
@@ -71,42 +71,30 @@ function appendYes() {
 
 
 // attempted to push goals clicked goal type here so we could  use the next line of code which compars values.
-// console.log(Object.is(goals.goal_id, yes.goal_id));  
+// console.log(Object.is(goals.goal_id, yes.goal_id));
 
 
-var theseGoals = []
-var theseGoalsYes = 0;
-
+// var theseGoals = []
+// var theseGoalsYes = 0;
+//
 
 
 $(".categories").on('click', 'button', function() {
-    theseGoals = [];
- 
+    // theseGoals = [];
     $('#goalSection').children().hide();
-  
     $('#goalSection').css('display', 'block');
     let data = $(this).data('type');
     // console.log(data);
-    
- 
-    
     goals.forEach(function(goal) {
       if(goal.type == data){
          $('#goalSection').children('[data-type="' + data + '"]').fadeIn();
         // console.log(goal);
         theseGoals.push(goal);
-
         // $('#projectSection').focus();
-        
       }
-
-
-
-
     });
 
-    
+
 
 
   });
-  

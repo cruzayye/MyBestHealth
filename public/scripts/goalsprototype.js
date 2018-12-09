@@ -1,83 +1,63 @@
+//
+//
+// goals = [];
+//
+// function Goals(yesObj) {
+//     this.type = yesObj.type;
+//     this.what = yesObj.what;
+//     this.howOften = yesObj.howOften;
+//     this.dateStart = yesObj.dateStart;
+//     this.dateEnd = yesObj.dateEnd;
+//     this.user_id = yesObj.user_id;
+//     this.goal_id = yesObj.user_id;
+//     this.percentageBar = function(){
+//         var yesCount = 2
+//         var goal = this.howOften;
+//         var yesPercentage = 4;
+//         var yesIncrement = 100 / goal;
+//         //need to figure out where to place this code.
+//
+//         // if (yesCount <= goal){
+//         //     document.getElementsByClassName('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
+//
+//         //     }
+//
+//         var percentage = Math.round(yesPercentage+=yesIncrement);
+//         return percentage;
+//
+//
+//     }
+// }
 
+Goal.prototype.toSectionHtml = function() {
+  var tempFiller = Handlebars.compile( $("#sectionGoal").html() );
+  var filledTemplate = tempFiller( this );
+  return filledTemplate;
+};
 
-goals = [];
-
-function Goals(yesObj) {
-    this.type = yesObj.type;
-    this.what = yesObj.what;
-    this.howOften = yesObj.howOften;
-    this.dateStart = yesObj.dateStart;
-    this.dateEnd = yesObj.dateEnd;
-    this.user_id = yesObj.user_id;
-    this.goal_id = yesObj.user_id;
-    this.percentageBar = function(){
-        var yesCount = 2
-        var goal = this.howOften;
-        var yesPercentage = 4;
-        var yesIncrement = 100 / goal;
-        //need to figure out where to place this code. 
-
-        // if (yesCount <= goal){
-        //     document.getElementsByClassName('progress-bar').style.width = Math.round(yesCount / goal * 100) + '%';
-        
-        //     }  
-
-        var percentage = Math.round(yesPercentage+=yesIncrement);
-        return percentage;
-        
-
-    }
+Goal.getGoals = function () {
+  if (localStorage.goals) {
+    Goal.loadAll(JSON.parse(localStorage.goals));
+  } else
+    Goal.prototype.checkGoals();
 }
 
-
-Goals.prototype.toHtml = function() {
-    var tempFiller = Handlebars.compile( $("#sectionGoal").html() );
-  
-    var filledTemplate = tempFiller( this ); 
-  
-    return filledTemplate;
-     
-    };
-
-
-
-
-Goals.getGoals = function () {
-    if (localStorage.goals) {
-        Goals.loadAll(JSON.parse(localStorage.goals));
-    } else
-        //still need to fill in code for localStorage
-        $.get('data/goals2.json', showFile);
-    function showFile(response) {
-        localStorage.setItem("goals", JSON.stringify(response));
-        //once we get our data do something with it.
-        Goals.loadAll(response);
-    }
-}
-
-Goals.loadAll = function (rawData) {
+Goal.loadAll = function (rawData) {
     rawData.forEach(function (ele) {
-        goals.push(new Goals(ele));
+        goals.push(new Goal(ele));
     })
 }
 
-
-
 function appendGoals() {
     goals.forEach(function(singleGoal){
-      $('#goalSection').append(singleGoal.toHtml());
+      $('#goalSection').append(singleGoal.toSectionHtml());
     });
-  
+
   };
 
 
-
-
-
-
-
 function initGoals() {
-    Goals.getGoals()
+    Goal.getGoals()
 }
 
 initGoals();
@@ -104,13 +84,4 @@ appendGoals();
 
 // }
 
-// console.log(Object.is(goals.goal_id, yes.goal_id));  
-
-
-
-
-
-
-
-
-
+// console.log(Object.is(goals.goal_id, yes.goal_id));
