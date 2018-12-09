@@ -25,39 +25,6 @@ app.get('/profile', (request, response) =>  response.sendFile('profile.html', {r
 
 app.get('/new', (request, response) =>  response.sendFile('signup.html', {root: './public'}));
 
-app.post('/signin', function(request, response, next){
-  console.log("signign in");
-  const credentials = request.body;
-  if (!credentials.email || !credentials.password){
-    return next ({ status: 400, message:"Please fill out both fields!",})
-  }
-
-  client.query(`
-  SELECT email, password, name, age, heightFeet, heightInches, weight, user_id 
-  FROM users
-  WHERE email = $1`,
-  [credentials.email]
-  )
-    .then( result => {
-      if( !result.rows[0] || result.rows[0].password !== credentials.password || result.rows[0].email !== credentials.email  ) {
-        return next({ status: 401, message: 'invalid username or password' });
-    }
-      response.json({
-        name: result.rows[0].name,
-        email: result.rows[0].email,
-        age: result.rows[0].age,
-        heightFeet: result.rows[0].heightFeet,
-        heightInches: result.rows[0].heightInches,
-        heightInches: result.rows[0].heightInches,
-        weight: result.rows[0].weight,
-        user_id: result.rows[0].user_id
-        
-      })
-
-    })
-
-});
-
 app.post('/users', function(request, response){
   client.query(`
     INSERT INTO users(name, age, heightFeet, heightInches, weight, email, password)
@@ -110,18 +77,18 @@ app.post('/goals', function(request, response){
   });
 });
 
-app.post('/yesCheck', function(request, response, next){
-  const thisGoal = request.body;
-  client.query(`
-    SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.dateToday]
-  )
-  .then(result => {
-    response.send(result.rows);
-  })
-  .catch(function(err){
-    console.error(err);
-  });
-});
+// app.post('/yesCheck', function(request, response, next){
+//   const thisGoal = request.body;
+//   client.query(`
+//     SELECT * from dates_yes where goal_id = $1 and days_yes = $2`, [thisGoal.goal_id, thisGoal.dateToday]
+//   )
+//   .then(result => {
+//     response.send(result.rows);
+//   })
+//   .catch(function(err){
+//     console.error(err);
+//   });
+// });
 
 app.post('/addYes', function(request, response, next){
   const goalInfo = request.body;
@@ -169,7 +136,7 @@ function loadGoals(){
         JSON.parse(fd.toString()).forEach(ele => {
           client.query(
             `INSERT INTO goals(what, howOften, dateStart, user_id, type)
-            VALUES ($1, $2, $3, $4);
+            VALUES ($1, $2, $3, $4, $5);
             `,
             [ele.what, ele.howOften, ele.dateStart, ele.user_id, ele.type]
           )
@@ -187,10 +154,10 @@ function loadYeses(){
       fs.readFile('./public/data/dates_yes.json', (err, fd) => {
         JSON.parse(fd.toString()).forEach(ele => {
           client.query(
-            `INSERT INTO dates_yes(goal_id, days_yes)
+            `INSERT INTO dates_yes(days_yes, goal_id)
             VALUES ($1, $2);
             `,
-            [ele.goal_id, ele.days_yes]
+            [ele.days_yes, ele.goal_id]
           )
           .catch(console.error);
         })
@@ -229,7 +196,7 @@ function loadDB() {
       howOften VARCHAR(255),
       dateStart VARCHAR(255),
       dateEnd VARCHAR(255),
-      user_id VARCHAR(255),
+      user_id VARCHAR(255)
     );`
   )
   .then(function(){
@@ -241,8 +208,8 @@ function loadDB() {
   client.query(`
     CREATE TABLE IF NOT EXISTS
     dates_yes (
-      goal_id VARCHAR(255),
-      days_yes VARCHAR(255)
+      days_yes VARCHAR(255),
+      goal_id VARCHAR(255)
     );`
   )
   .then(function(){

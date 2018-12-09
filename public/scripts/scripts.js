@@ -3,7 +3,13 @@ page = {};
 page.showPrompts = function() {
   goals.forEach(function(goal){
     $("#logZone").append(goal.toHtml())
-  })
+  });
+  buttonInit();
+}
+
+page.initGoalTracking = function(){
+  Goal.prototype.checkGoals();
+  page.showPrompts();
 }
 
 $("#submitButton").click(function(event){
