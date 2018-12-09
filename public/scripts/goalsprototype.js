@@ -13,8 +13,8 @@ function Goals(yesObj) {
     this.percentageBar = function(){
         var yesCount = 2
         var goal = this.howOften;
-        var yesPercentage = 4;
-        var yesIncrement = 100 / goal;
+        var yesToDate = 4;
+        var yesPercentage = 100 / goal;
         //need to figure out where to place this code. 
 
         // if (yesCount <= goal){
@@ -22,7 +22,7 @@ function Goals(yesObj) {
         
         //     }  
 
-        var percentage = Math.round(yesPercentage+=yesIncrement);
+        var percentage = Math.round(yesToDate+=yesPercentage);
         return percentage;
         
 
@@ -87,24 +87,6 @@ appendGoals();
 
 
 
-////CLICK FUNCTIONS
-
-///////////////////////////////////////////////get yes
-
-
-
-
-//   function compareIds(){
-//     yes.forEach(function(id){
-//         if (id.goal_id == goals.goal_id){
-//             console.log(yes.length);
-//         }
-
-//     });
-
-// }
-
-// console.log(Object.is(goals.goal_id, yes.goal_id));  
 
 
 

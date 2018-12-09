@@ -69,7 +69,7 @@ Goal.prototype.checkToday = function() {
   goals.forEach(function(goal){
     for (i=0; i < goalsDone.length; i++){
       if(goal.goal_id == goalsDone[i].goal_id)
-      console.log("need to fill something in")
+      console.log("need to fill something in");
 
     }
   })
