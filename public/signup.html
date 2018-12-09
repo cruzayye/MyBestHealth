@@ -3,12 +3,36 @@
 <head>
   <link rel="stylesheet" href="styles/modules.css">
   <link rel="stylesheet" href="styles/base.css">
-
-</head>
   <style>
 
+    #container{
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      margin: 0;
+      
+    }
+    
+    input{
+      margin-top: 5%;
+    }
+    
+    h1{
+      font-size: 3em;
+    }
+
+    h2{
+      justify-self:start;
+    }
+
+    form{
+      justify-items: start;
+    }
+    
   </style>
+</head>
 <body>
+<div id ="container">
   <header>
     <img id="siteIcon" src=" "><h1>Welcome to myBestHealth!</h1>
   </header>
@@ -44,6 +68,7 @@
     <span id="emptyGoal"><span>
     </form><br>
     </section>
+  </div>
   <script type='text/javascript' src='scripts/jquery-3.3.1.min.js'></script>
   <script type="text/javascript" src="scripts/scripts.js"></script>
   <script type="text/javascript" src="scripts/users.js"></script>
