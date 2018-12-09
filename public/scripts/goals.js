@@ -90,12 +90,15 @@ Goal.prototype.filterOutToday = function(){
 }
 
 
-
 Goal.prototype.sayHi = function(){
   console.log('hi!');
 }
+
+
+console.log("goals.js connected")
 
 // Goal.prototype.checkGoals();
 // Goal.prototype.checkToday();
 // Goal.prototype.filterIds();
 // Goal.prototype.filterTodayIds();
+

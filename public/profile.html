@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/base.css">
 <style>
     .userInfo{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto 1fr;
         margin-top: 3%;
     }
 
@@ -21,56 +22,145 @@
 
     }
 
+    #goalSection{
+        display: none;
+        
+    
+    }
+
+    .profile{
+        border-left: solid white 1px;
+        border-bottom: solid white 1px;
+        margin-right: -50%;  
+        padding-left: 10%;      
+    }
+
+    .categories{
+        margin-left: 20%;
+
+    }
+
+    #goalSection > div{
+        border-bottom: 1px solid white;
+    }
+
+    .progress-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            box-shadow: 0 0 4px white;
+            border-radius: 13px;
+            position: relative;
+            height: 26px;
+            margin-top: 2%;
+            margin-right: 2%;
+            margin-left: 2%;
+            margin-bottom: 2%;
+     }
+    
+     .progress-bar {
+            border-radius: 13px;
+            height: 26px;
+            width: 0;
+            background-color: #FF443B;
+            position: absolute;
+            top: -1px;
+            left: 0;
+            z-index: -1;
+    }
+
+    h3.percentage {
+
+        align-self: center;
+    }
+
+.progress-bar{
+    
+    background: #60163d;
+    ;
+    align-self: center;
+}
+
+
 
 </style>
     <script id="user-profile" type="text/x-handlebars-template">
-        <div class="content template project-details"  data-project="{{name}}">
+        <div class="profile"  >
             <h2>Name: {{name}}</h2>
             <h2>age: {{age}}</h2>
             <h2>height: {{heightFeet}}</h2>
             <h2>weight: {{weight}}</h2>
 
+ 
+        </div>
+
+
+</script>
+ <script id="sectionGoal" type="text/x-handlebars-template" >
+    <div data-type="{{type}}">
+    <h2> {{what}}</h2>
+    <h2> Week to Date: {{type}} of {{howOften}} </h2>
+    <aside class="progress-container">
+            <h3 class= "percentage"> {{percentageBar}}%</h3>
+            <div class="progress-bar"></div>
+    </aside>
+    </div>
 
 </script>
 </head>
 
 <body>
     <nav>
-            <div id="logo">logo</div>
-            <div class="tabs">home</div>
-            <div class="tabs">about</div>
-            <div class="tabs">stats</div>
-            <div class="tabs">Edit</div>
+            <div id="logo">
+                    <a href="landing.html"> My Best Health 
+                    </a>
+             </div> 
+             <div class="tabs">
+                <a href= "landing.html">
+                    home    
+                </a>
+            </div>
+            <div class="tabs">
+                 <a href= "about.html">
+                    about   
+                 </a>
+            </div>
+            <div class="tabs">
+                 <a href= "profile.html">
+                    stats    
+                </a>
+            </div>
+
+       
     </nav>
     <section class= "userInfo">
         <!-- <h1>This is you</h1> -->
         <aside id = "profile-user">
         </aside>
+
         <aside class="categories">
-            <button> Mind</button>
-            <button> Body</button>
-            <button> Nutrition</button>
+            <button class = "button" data-type="mind"> Mind</button>
+            <button class = "button" data-type="exercise"> Body</button>
+            <button class = "button" data-type="diet" > diet</button>
         </aside>
     </section>
 
-    <section>
+    <!-- <section>
     <div class = "progress"> 100%</div>
-    </section>
+    </section> -->
 
-    <section>
-        <!-- create function to fill in numbers -->
-        <h2>you worked out 2 out of 4 times this week</h2>
-        <h2>You're halfway there </h2>
-    </section>
+    <section id= "goalSection">
 
-    <section>
-        this week: <div> diplay days of the week</div>
+
     </section>
 
 
 
 
 
+
+
+<!-- 
     <footer>
         <nav>
 
@@ -82,14 +172,20 @@
                 </div>
 
         </nav>
-    </footer>
+    </footer> -->
 
 </body>
 <script type='text/javascript' src='scripts/jquery-3.3.1.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 <script type="text/javascript" src="scripts/scripts.js"></script>
 <script type="text/javascript" src="scripts/users.js"></script>
-<script type="text/javascript" src="scripts/goals.js"></script>
+<!-- <script type="text/javascript" src="scripts/goals.js"></script> -->
+<script type="text/javascript" 
+src="scripts/goalsprototype.js"></script>
+<script type="text/javascript" src="scripts/getyesprototype.js"></script>
 <script type="text/javascript" src="scripts/getuser.js"></script>
+<!-- <script type="text/javascript" src="scripts/dates.js"></script> -->
+
+
 
 </html>

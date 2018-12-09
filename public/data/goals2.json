@@ -2,28 +2,20 @@
   {
   "type": "exercise",
   "what": "run",
-  "howOften": "3",
-  "dateStart":"",
-  "dateEnd":"",
-  "user_id":"1"
-  },
-  {
-
-  "type": "diet",
-  "what": "skip adding sugar to coffee",
-  "howOften": "3",
-  "dateStart":"",
-  "dateEnd":"",
-  "user_id":"1"
-  },
-  {
-
-  "type": "mind",
-  "what": "focus on breathing for five minutes",
   "howOften": "5",
   "dateStart":"",
   "dateEnd":"",
-  "user_id":"1"
+  "user_id":"1",
+  "goal_id":"1"
+  },
+  {
+  "type": "exercise",
+  "what": "run",
+  "howOften": "4",
+  "dateStart":"",
+  "dateEnd":"",
+  "user_id":"1",
+  "goal_id":"2"
   },
   {
   "type": "exercise",
@@ -31,15 +23,17 @@
   "howOften": "3",
   "dateStart":"",
   "dateEnd":"",
-  "user_id":"200"
+  "user_id":"200",
+  "goal_id":"4"
   },
   {
   "type": "mind",
   "what": "meditate",
-  "howOften": "3",
+  "howOften": "1",
   "dateStart":"",
   "dateEnd":"",
-  "user_id":"200"
+  "user_id":"200",
+  "goal_id":"5"
   },
   {
   "type": "diet",
@@ -47,6 +41,7 @@
   "howOften": "3",
   "dateStart":"",
   "dateEnd":"",
-  "user_id":"200"
+  "user_id":"200",
+  "goal_id":"3"
   }
 ]
